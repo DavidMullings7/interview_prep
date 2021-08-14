@@ -1,3 +1,3 @@
 # interview_prep
 
-Coding practice from various sites to help me prepare for technical interviews. hello
+Coding practice from various sites to help me prepare for technical interviews.

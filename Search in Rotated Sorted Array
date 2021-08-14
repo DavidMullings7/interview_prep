@@ -1,0 +1,35 @@
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        min_index = None
+        b = 0
+        e = len(nums) - 1
+        flag = False
+        
+        while (b <= e and not flag):
+            index = b + (e - b) // 2
+            
+            if (nums[index] > nums[b] and nums[index] > nums[e]):
+                b = index + 1
+            elif (nums[index] < nums[b] and nums[index] < nums[e]):
+                e = index
+            else:
+                if (nums[b] < nums[e]):
+                    min_index = b
+                else:
+                    min_index = e
+                flag = True
+        
+        b = 0
+        e = len(nums) - 1
+        while (b <= e):
+            index = b + (e - b) // 2
+            if (nums[convert(min_index, len(nums), index)] > target):
+                e = index - 1
+            elif (nums[convert(min_index, len(nums), index)] < target):
+                b = index + 1
+            else:
+                return convert(min_index, len(nums), index)
+        return -1 
+        
+def convert(pivot: int, length : int, index : int) -> int:
+    return (pivot + index) % length
